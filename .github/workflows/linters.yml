@@ -3,13 +3,11 @@ name: Run Spectral on Pull Requests
 on:
   - pull_request
 
-permissions:
-  contents: read
-
 jobs:
   build:
     name: Run Spectral
-    permissions: read-all
+    permissions:
+      checks: write
     runs-on: ubuntu-latest
     steps:
       # Check out the repository
