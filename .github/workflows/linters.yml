@@ -20,5 +20,5 @@ jobs:
       # Pin to v0.8.11
       - uses: stoplightio/spectral-action@2ad0b9302e32a77c1caccf474a9b2191a8060d83
         with:
-          file_glob: '*.{json,yml,yaml}'
+          file_glob: '**/*.{json,yml,yaml}'
   
