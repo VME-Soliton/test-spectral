@@ -20,4 +20,20 @@ jobs:
       - uses: stoplightio/spectral-action@2ad0b9302e32a77c1caccf474a9b2191a8060d83
         with:
           file_glob: '**/*.{json,yml,yaml}'
-  
+
+  lint:
+    name: Run Spectral from npm package
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        # Check out the repository
+        # Pin to v4.1.1
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+
+      - name: install Spectral
+        run: npm install @stoplight/spectral-cli
+
+      - name: lint the files
+        run: spectral lint
