@@ -9,6 +9,7 @@ permissions:
 jobs:
   build:
     name: Run Spectral
+    permissions: read-all
     runs-on: ubuntu-latest
     steps:
       # Check out the repository
