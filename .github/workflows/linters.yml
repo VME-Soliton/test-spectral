@@ -36,4 +36,4 @@ jobs:
         run: npm install -g @stoplight/spectral-cli
 
       - name: lint the files
-        run: spectral lint
+        run: spectral lint **/*.{json,yml,yaml}
