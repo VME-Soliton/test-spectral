@@ -1,0 +1,22 @@
+name: Run Spectral on Pull Requests
+
+on:
+  - pull_request
+
+jobs:
+  lint:
+    name: Run Spectral from npm package
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        # Check out the repository
+        # Pin to v4.1.1
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+
+      - name: install Spectral
+        run: npm install -g @stoplight/spectral-cli
+
+      - name: lint the files
+        run: spectral lint --ignore-unknown-format -D -f junit -o **/*.{json,yml}
